@@ -1,0 +1,10 @@
+// Saúde Repositório no Cloudflare Workers: só arquivos estáticos (SPA), sem servidor.
+// Banco, login, arquivos e funções ficam no Supabase do gerenciador-casa (tabelas saude_*).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "saude-repositorio",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./dist", "not_found_handling": "single-page-application" },
+  "routes": [{ "pattern": "saude.evoque.global", "custom_domain": true }],
+  "observability": { "enabled": true }
+}
