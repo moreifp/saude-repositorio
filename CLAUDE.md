@@ -9,8 +9,9 @@
 - Front: Cloudflare Workers, SPA estática de `dist/`, em https://saude.evoque.global.
   Publicar: `python3 ~/mnt/evoque/.ferramentas/saude_publicar.py` (build + deploy).
 - Back: Supabase do **gerenciador-casa** (ref `zbntjvgbghftpkwcgasr`), separado por prefixo:
-  - tabelas `saude_documentos`, `saude_remedios`, `saude_doencas`, `saude_cirurgias`, `saude_perfil`;
-  - RLS: só `fausto.moreira@gmail.com` (função `saude_dono()`);
+  - tabelas `saude_perfil`, `saude_documentos`, `saude_anexos`, `saude_remedios`, `saude_doencas`, `saude_cirurgias`, `saude_notas`;
+  - RLS: só os e-mails da função `saude_dono()` (Fausto e mais dois, ver a migration);
+  - schema versionado em `supabase/migrations/20261024000000_schema_saude.sql` (extraído do banco em 24/10/2026 — mudou o banco, atualize o arquivo);
   - buckets privados `saude-miniaturas` (miniatura da lista) e `saude-inbox` (original até ir para o Drive);
   - Edge Function `saude-documento` (ler com o Claude, mandar ao Drive, reenviar pendentes).
     Publicar: `python3 ~/mnt/evoque/.ferramentas/saude_funcoes.py`.

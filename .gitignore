@@ -3,3 +3,6 @@ dist
 .env*
 .wrangler
 .teste
+
+# lixo de build do Vite
+vite.config.*.timestamp-*
